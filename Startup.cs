@@ -20,7 +20,7 @@ namespace steelexample
                 .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables()
-				.AddConfigServer(env);
+                .AddConfigServer(env);
             Configuration = builder.Build();
         }
 
@@ -29,7 +29,7 @@ namespace steelexample
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-			services.AddConfigServer(Configuration);
+            services.AddConfigServer(Configuration);
             // Add framework services.
             services.AddMvc();
         }
