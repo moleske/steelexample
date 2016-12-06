@@ -25,6 +25,7 @@ namespace steelexample.Controllers
         public IActionResult ConfigServer()
         {
             ViewData["Foo"] = Config["Foo"];
+            ViewData["Bar"] = Config["Bar"];
             return View();
         }
 
