@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Steeltoe.Extensions.Configuration;
+using Steeltoe.Discovery.Client;
 
 namespace steelexample
 {
@@ -30,6 +31,7 @@ namespace steelexample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddConfigServer(Configuration);
+            services.AddDiscoveryClient(Configuration);
             // Add framework services.
             services.AddMvc();
         }
@@ -58,6 +60,8 @@ namespace steelexample
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            app.UseDiscoveryClient();
         }
     }
 }
